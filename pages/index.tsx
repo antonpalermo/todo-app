@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/react'
 import React from 'react'
 
 const Home = () => {
-  return <div>home</div>
+  return <div className="text-red-600">home</div>
 }
 
 export const getServerSideProps: GetServerSideProps = async (

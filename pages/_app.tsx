@@ -1,6 +1,9 @@
 import React from 'react'
 import { AppProps } from 'next/app'
 
+import '@fontsource/inter'
+import '../styles/globals.css'
+
 import { SessionProvider } from 'next-auth/react'
 
 const App = ({ Component, pageProps: { session, ...props } }: AppProps) => {
