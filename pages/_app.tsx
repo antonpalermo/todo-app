@@ -1,15 +1,20 @@
 import React from 'react'
-import { AppProps } from 'next/app'
 
 import '@fontsource/inter'
 import '../styles/globals.css'
 
 import { SessionProvider } from 'next-auth/react'
+import { PageLayoutProps } from '../utils/page-layout'
 
-const App = ({ Component, pageProps: { session, ...props } }: AppProps) => {
+const App = ({
+  Component,
+  pageProps: { session, ...props }
+}: PageLayoutProps) => {
+  const getParentLayout = Component.parentLayout ?? (page => page)
+
   return (
     <SessionProvider session={session}>
-      <Component {...props} />
+      {getParentLayout(<Component {...props} />)}
     </SessionProvider>
   )
 }
